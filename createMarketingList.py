@@ -24,6 +24,17 @@
 import csv
 
 # open the vendorlist file
+infile = open ("VendorList.csv","r")
+outfile = open('marketinglistFINAL.csv' , 'w')
+de = csv.reader(infile, delimiter=',')
+
+for rows in de: 
+    dic = {row[1]+' '+row[2]+':'+row[4]+','+row[5] for row in de }
+ 
+outfile.write("Name,Email,Phone #")
+outfile.write(str(dic))
+
+outfile.close()
 
 
 # create a csv object from the file object
@@ -57,4 +68,18 @@ import csv
 
 
 # close your output file
+ 
+#import csv
 
+
+#reader = csv.DictReader(open('VendorList.csv'))
+#outfile = open('marketinglistFINAL.csv' , 'w')
+#result = {}
+#for row in reader:
+    #for column, value in row.items():  # consider .iteritems() for Python 2
+        #result.setdefault(column, []).append(value)
+
+#outfile.write(str(result))
+
+#outfile.close()
+ 
